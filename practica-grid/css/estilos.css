@@ -2,6 +2,7 @@
   max-width: var(--ancho-contenedor);
   padding-inline: var(--espacio-4); /* margen lateral en pantallas estrechas */
   margin: 0 auto;
+  width: 90%;
 }
 
 /* ----------  CABECERA ---------- */
@@ -142,7 +143,7 @@
 /* ----------  TARJETA ---------- */
 .tarjeta {
   display: flex;
-  flex: 1 1 18rem;
+  flex: 1 1 28%; /* 3 por fila en escritorio */
   flex-direction: column;
   overflow: hidden;
   background-color: var(--color-superficie);
@@ -264,7 +265,7 @@
 
 .plan {
   display: flex;
-  flex: 1 1 18rem;
+  flex: 1 1 28%; /* 3 por fila en escritorio */
   flex-direction: column;
   align-items: flex-start;
   gap: var(--espacio-1);
@@ -430,4 +431,108 @@
 .seccion__titulo {
   margin-bottom: var(--espacio-5);
   font-size: var(--texto-xl);
+}
+
+/* ----------  BOTÓN HAMBURGUESA  ---------- */
+.menu__toggle {
+  display: none;
+  padding: var(--espacio-1) var(--espacio-3);
+  background-color: transparent;
+  border-radius: var(--radio-s);
+  font-size: var(--texto-xl);
+  line-height: 1;
+  color: var(--color-tinta);
+  transition: background-color var(--transicion);
+}
+.menu__toggle:hover {
+  background-color: var(--color-fondo);
+}
+
+/* =========================================================
+   RESPONSIVE (desktop-first con max-width)
+   Lo de arriba es escritorio (≥ 960px).
+   Las variables no funcionan en la condición del @media,
+   pero sí dentro de las reglas.
+   ========================================================= */
+
+/* ---------- TABLET Y MÓVIL (hasta 959px) ---------- */
+@media (max-width: 959px) {
+  /* Menú hamburguesa: el botón lo crea js/menu.js y el JS añade
+     .menu--abierto al <nav> para mostrar la lista. */
+  .menu__toggle {
+    display: block;
+  }
+  .menu {
+    display: none;
+    flex-basis: 100%;
+    padding-bottom: var(--espacio-2);
+  }
+  .menu--abierto {
+    display: flex;
+  }
+  .menu__lista {
+    flex: 1;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--espacio-1);
+  }
+  .menu__enlace {
+    display: block;
+    padding-block: var(--espacio-2);
+  }
+  .menu__lista .boton {
+    display: block;
+  }
+
+  .hero__interior {
+    padding-block: var(--espacio-7);
+  }
+
+  /* Cartel: 2 por fila */
+  .tarjeta {
+    flex-basis: 40%;
+  }
+
+  /* Planes: uno debajo de otro; ya no hace falta el hueco de la etiqueta */
+  .plan {
+    flex-basis: 100%;
+    padding-top: var(--espacio-4);
+  }
+
+  /* Pie: la marca ocupa toda la fila */
+  .pie__columna--marca {
+    flex-basis: 100%;
+  }
+}
+
+/* ---------- MÓVIL (hasta 639px) ---------- */
+@media (max-width: 639px) {
+  .hero__interior {
+    padding-block: var(--espacio-6);
+  }
+
+  .seccion__titulo {
+    font-size: var(--texto-l);
+  }
+
+  .cartel,
+  .escenarios,
+  .entradas {
+    padding-block: var(--espacio-5);
+  }
+
+  /* Todo en una columna */
+  .dato,
+  .tarjeta,
+  .bloque__texto,
+  .bloque__visual,
+  .pie__columna {
+    flex-basis: 100%;
+  }
+
+  /* Barra legal apilada */
+  .pie__legal-interior {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

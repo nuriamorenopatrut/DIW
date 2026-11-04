@@ -8,8 +8,8 @@
   font-style: italic;
   src: url("../assets/fonts/DMSans-Italic-VariableFont_opsz\,wght.woff2");
 }
+
 :root {
-  /* color */
   --color-background-gray: #f5f5f5;
   --color-primary-black: #0d0d0d;
   --color-primary-light-purple: #dcd1fc;
@@ -17,7 +17,6 @@
   --color-primary-salmon: #faeee2;
   --color-primary-white: #ffffff;
   --color-primary-yellow: #fdcb68;
-  /* fonts */
   --font-family-body: DMSans, sans-serif;
 }
 
@@ -30,83 +29,282 @@
 body {
   background-color: var(--color-background-gray);
   font-family: var(--font-family-body);
-  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .enfasis {
   font-style: italic;
+  font-family: DM-Sans-Italic, DMSans, sans-serif;
 }
 
+.amarillo {
+  color: var(--color-primary-yellow);
+}
+
+/* =========================================================
+    GRID PRINCIPAL
+   ========================================================= */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(10, 1fr);
-  gap: 1rem;
-  width: 65vw;
-  height: 90vh;
-  margin: 0 auto;
+  gap: 1.5rem;
+  width: 75vw;
+  max-width: 1050px;
+  height: 85vh;
+  max-height: 750px;
 }
 
-div {
-  border-radius: 0.3rem;
-}
-
+/* Posicionamiento exacto de las 8 tarjetas */
 #create-schedule {
-  grid-column: 1/2;
-  grid-row: 1/6;
+  grid-column: 1 / 2;
+  grid-row: 1 / 6;
   background-color: var(--color-primary-salmon);
+  justify-content: center;
 }
 
 #social-media {
-  grid-column: 2/4;
-  grid-row: 1/5;
+  grid-column: 2 / 4;
+  grid-row: 1 / 5;
   background-color: var(--color-primary-purple);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-primary-white);
 }
 
 #schedule {
-  grid-column: 4/5;
-  grid-row: 1/8;
+  grid-column: 4 / 5;
+  grid-row: 1 / 8;
   background-color: var(--color-primary-light-purple);
 }
 
 #write-ai {
-  grid-column: 1/2;
-  grid-row: 6/11;
+  grid-column: 1 / 2;
+  grid-row: 6 / 11;
   background-color: var(--color-primary-yellow);
 }
 
 #manage-accounts {
-  grid-column: 2/3;
-  grid-row: 5/8;
+  grid-column: 2 / 3;
+  grid-row: 5 / 8;
   background-color: var(--color-primary-white);
-}
-
-#audience {
-  grid-column: 2/3;
-  grid-row: 8/11;
-  background-color: var(--color-primary-white);
+  justify-content: flex-start;
 }
 
 #maintain-posting {
-  grid-column: 3/4;
-  grid-row: 5/8;
+  grid-column: 3 / 4;
+  grid-row: 5 / 8;
   background-color: var(--color-primary-yellow);
 }
 
+#audience {
+  grid-column: 2 / 3;
+  grid-row: 8 / 11;
+  background-color: var(--color-primary-white);
+}
+
 #grow-followers {
-  grid-column: 3/5;
-  grid-row: 8/11;
+  grid-column: 3 / 5;
+  grid-row: 8 / 11;
   background-color: var(--color-primary-purple);
+  flex-direction: row;
+  align-items: center;
+  color: var(--color-primary-white);
 }
 
-#purple-text {
-  color: var(--color-primary-purple);
+/* =========================================================
+   ESTILOS COMUNES Y DETALLES DE CADA TARJETA
+   ========================================================= */
+.grid-container__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.5rem;
+  overflow: hidden;
+  border-radius: 0.6rem;
+  color: var(--color-primary-black);
 }
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
+.grid-container__item img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
+
+/* 1. Create schedule */
+#create-schedule p {
+  font-size: 2rem;
+}
+#create-schedule img {
+  margin-top: 1rem;
+  width: 75%;
+}
+
+/* 2. Social Media */
+#social-media p:first-child {
+  font-size: 2.6rem;
+  line-height: 1.15;
+  max-width: 350px;
+  margin: 0 auto;
+}
+#social-media img {
+  margin-block: 0.5rem;
+  width: 7.5rem;
+}
+#social-media p:last-child {
+  font-size: 0.95rem;
+}
+
+/* 3. Schedule */
+#schedule p:first-child {
+  font-size: 1.6rem;
+}
+#schedule img {
+  margin: 1rem auto 1rem auto;
+  width: 22rem;
+  max-width: none;
+}
+#schedule p:last-child {
+  margin-top: auto;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+/* 4. Write AI */
+#write-ai p {
+  font-size: 2rem;
+}
+#write-ai img {
+  margin-top: auto;
+  width: 95%;
+}
+
+/* 5. Manage Accounts */
+#manage-accounts img {
+  margin: -1.5rem -1.5rem 0 0;
+  width: calc(100% + 1.5rem);
+  max-width: none;
+}
+#manage-accounts p {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* 6. Maintain Posting */
+#maintain-posting img {
+  margin: auto -1.5rem -1.5rem 0;
+  width: calc(100% + 1.5rem);
+  max-width: none;
+}
+#maintain-posting p {
+  font-size: 1.5rem;
+}
+
+/* 7. Audience */
+#audience p:first-child {
+  font-size: 3rem;
+}
+#audience p:last-of-type {
+  font-size: 1rem;
+}
+#audience img {
+  margin-top: auto;
+  width: 65%;
+}
+
+/* 8. Grow Followers */
+#grow-followers img {
+  width: 45%;
+  max-width: none;
+}
+#grow-followers p {
+  flex: 1;
+  font-size: 1.9rem;
+  padding-left: 1rem;
+}
+
+/* =========================================================
+   MEDIA QUERY: ORDEN MÓVIL EXACTO (Top to Bottom)
+   ========================================================= */
+@media screen and (max-width: 1024px) {
+  body {
+    height: auto;
+    min-height: 100vh;
+    padding: 3rem 1rem;
+  }
+
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    max-height: none;
+  }
+
+  .grid-container__item {
+    overflow: visible;
+    height: auto;
+    min-height: auto;
+  }
+
+  #create-schedule,
+  #social-media,
+  #schedule,
+  #write-ai,
+  #manage-accounts,
+  #maintain-posting,
+  #audience,
+  #grow-followers {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  #social-media {
+    order: 1;
+  }
+  #manage-accounts {
+    order: 2;
+  }
+  #maintain-posting {
+    order: 3;
+  }
+  #schedule {
+    order: 4;
+  }
+  #grow-followers {
+    order: 5;
+  }
+  #audience {
+    order: 6;
+  }
+  #create-schedule {
+    order: 7;
+  }
+  #write-ai {
+    order: 8;
+  }
+
+  #social-media p:first-child {
+    font-size: 2.2rem;
+    max-width: 100%;
+  }
+
+  #grow-followers {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #grow-followers img {
+    width: 50%;
+    margin-bottom: 1rem;
+  }
+
+  #grow-followers p {
+    padding-left: 0;
+  }
 }
