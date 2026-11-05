@@ -15,6 +15,18 @@
   --color-coral: #ef476f; /* acento de alerta / oferta */
   --color-borde: #d5dee3;
   --estado-destacado-hover: #cf2e57;
+
+  --fondo-pagina: var(--color-fondo);
+  --fondo-cabecera: var(--color-superficie);
+  --fondo-tarjeta: var(--color-superficie);
+  --texto-principal: var(--color-tinta);
+  --texto-suave: var(--color-tinta-suave);
+  --texto-acento: var(--color-ola);
+  --texto-enlace-hover: var(--estado-destacado-hover);
+  --borde-suave: var(--color-borde);
+  --accion-oscuro: var(--color-tinta);
+  --accion-oscuro-hover: var(--color-tinta-suave);
+
   /* ---------- Tipografía ---------- */
   --fuente-titulo: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
   --fuente-texto: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -61,6 +73,44 @@
   --transicion: 180ms ease;
 }
 
+/* SELECTOR DE TEMA (oscuro o claro) */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --fondo-pagina: #0b1326;
+    --fondo-cabecera: #14213d;
+    --fondo-tarjeta: #1c2b4d;
+    --texto-principal: #f2f6f7;
+    --texto-suave: #b4c0d9;
+    --texto-acento: #5fd0c2;
+    --texto-enlace-hover: #ff7a9a;
+    --borde-suave: #2c3d66;
+    --accion-oscuro: #3b5287;
+    --accion-oscuro-hover: #4a63a0;
+    --sombra-suave: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --sombra-fuerte: 0 12px 32px rgba(0, 0, 0, 0.55);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --fondo-pagina: #0b1326;
+  --fondo-cabecera: #14213d;
+  --fondo-tarjeta: #1c2b4d;
+  --texto-principal: #f2f6f7;
+  --texto-suave: #b4c0d9;
+  --texto-acento: #5fd0c2;
+  --texto-enlace-hover: #ff7a9a;
+  --borde-suave: #2c3d66;
+  --accion-oscuro: #3b5287;
+  --accion-oscuro-hover: #4a63a0;
+  --sombra-suave: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --sombra-fuerte: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
 /* Nota: las variables CSS NO funcionan dentro de @media (...).
    Puntos de ruptura de la práctica:
      móvil   → hasta 639px
@@ -84,8 +134,8 @@ body {
   font-family: var(--fuente-texto);
   font-size: var(--texto-m);
   line-height: 1.6;
-  color: var(--color-tinta);
-  background: var(--color-fondo);
+  color: var(--texto-principal);
+  background: var(--fondo-pagina);
 }
 
 img {

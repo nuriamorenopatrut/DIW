@@ -10,7 +10,7 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: var(--color-superficie);
+  background-color: var(--fondo-cabecera);
   min-height: var(--alto-cabecera);
   box-shadow: var(--sombra-suave);
 }
@@ -36,7 +36,7 @@
 }
 
 .menu__enlace:hover {
-  color: var(--estado-destacado-hover);
+  color: var(--texto-enlace-hover);
 }
 
 .logo {
@@ -54,11 +54,12 @@
 
 .boton--sol {
   background-color: var(--color-sol);
+  color: var(--color-tinta);
   font-weight: var(--peso-fuerte);
 }
 
 .boton--sol:hover {
-  background-color: var(--color-superficie);
+  background-color: var(--fondo-tarjeta);
   color: var(--color-sol);
   font-weight: var(--peso-fuerte);
   outline: 2px solid var(--color-sol);
@@ -101,7 +102,7 @@
 /* ----------  DATOS CLAVE ---------- */
 
 .datos {
-  background-color: var(--color-superficie);
+  background-color: var(--fondo-tarjeta);
   padding-block: var(--espacio-5);
 }
 
@@ -125,7 +126,7 @@
 
 .dato__etiqueta {
   font-size: var(--texto-xs);
-  color: var(--color-tinta-suave);
+  color: var(--texto-suave);
 }
 
 /* ----------  CARTEL ---------- */
@@ -146,8 +147,8 @@
   flex: 1 1 28%; /* 3 por fila en escritorio */
   flex-direction: column;
   overflow: hidden;
-  background-color: var(--color-superficie);
-  border: 1px solid var(--color-borde);
+  background-color: var(--fondo-tarjeta);
+  border: 1px solid var(--borde-suave);
   border-radius: var(--radio-m);
   transition:
     box-shadow var(--transicion),
@@ -193,12 +194,12 @@
 .tarjeta__estilo {
   font-size: var(--texto-xs);
   font-weight: var(--peso-fuerte);
-  color: var(--color-ola);
+  color: var(--texto-acento);
 }
 
 .tarjeta__texto {
   font-size: var(--texto-s);
-  color: var(--color-tinta-suave);
+  color: var(--texto-suave);
 }
 
 .tarjeta__boton {
@@ -234,7 +235,7 @@
 }
 
 .bloque__texto p {
-  color: var(--color-tinta-suave);
+  color: var(--texto-suave);
 }
 
 .bloque__visual {
@@ -273,8 +274,8 @@
   /* Hueco extra arriba (lo que ocupa la etiqueta) para alinear
   el nombre en las tres tarjetas, el destacado lo anula*/
   padding-top: var(--espacio-6);
-  background-color: var(--color-superficie);
-  border: 1px solid var(--color-borde);
+  background-color: var(--fondo-tarjeta);
+  border: 1px solid var(--borde-suave);
   border-radius: var(--radio-m);
   transition:
     box-shadow var(--transicion),
@@ -313,7 +314,7 @@
   gap: var(--espacio-1);
   margin-block: var(--espacio-3);
   font-size: var(--texto-s);
-  color: var(--color-tinta-suave);
+  color: var(--texto-suave);
 }
 
 .plan__boton {
@@ -410,11 +411,11 @@
 }
 
 .boton--oscuro {
-  background-color: var(--color-tinta);
+  background-color: var(--accion-oscuro);
   color: var(--color-superficie);
 }
 .boton--oscuro:hover {
-  background-color: var(--color-tinta-suave);
+  background-color: var(--accion-oscuro-hover);
 }
 
 .boton--ola {
@@ -423,8 +424,8 @@
 }
 
 .boton--ola:hover {
-  background-color: var(--color-superficie);
-  color: var(--color-ola);
+  background-color: var(--fondo-tarjeta);
+  color: var(--texto-acento);
   outline: 2px solid var(--color-ola);
 }
 
@@ -441,11 +442,11 @@
   border-radius: var(--radio-s);
   font-size: var(--texto-xl);
   line-height: 1;
-  color: var(--color-tinta);
+  color: var(--texto-principal);
   transition: background-color var(--transicion);
 }
 .menu__toggle:hover {
-  background-color: var(--color-fondo);
+  background-color: var(--fondo-pagina);
 }
 
 /* =========================================================
@@ -535,4 +536,48 @@
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* SELECTOR TEMA (oscuro o claro) */
+
+.selector {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  margin: 1.25rem 0;
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde-suave);
+  border-radius: 999px;
+}
+.selector button {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--texto-principal);
+  cursor: pointer;
+}
+.selector button:hover {
+  background: var(--fondo-pagina);
+}
+.selector button[aria-pressed="true"] {
+  background: var(--color-sol);
+  color: var(--color-tinta);
+}
+.selector button:focus-visible {
+  outline: 2px solid var(--color-ola);
+  outline-offset: 2px;
+}
+.selector svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

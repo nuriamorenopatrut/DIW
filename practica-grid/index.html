@@ -8,7 +8,7 @@
     <!-- 1º las variables y el reset, 2º vuestros estilos -->
     <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/estilos.css" />
-    <script src="./js/menu.js" defer></script>
+    <script src="./js/app.js" defer></script>
   </head>
   <body>
     <!-- ============ 1. CABECERA ============ -->
@@ -24,6 +24,50 @@
             <li><a href="#info" class="menu__enlace">Cómo llegar</a></li>
             <li>
               <a href="#entradas" class="boton boton--sol">Comprar entradas</a>
+            </li>
+            <li>
+              <div class="selector" role="group" aria-label="Tema">
+                <button
+                  type="button"
+                  data-tema="light"
+                  aria-label="Tema claro"
+                  title="Claro"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2" />
+                    <path d="M12 20v2" />
+                    <path d="m4.93 4.93 1.41 1.41" />
+                    <path d="m17.66 17.66 1.41 1.41" />
+                    <path d="M2 12h2" />
+                    <path d="M20 12h2" />
+                    <path d="m6.34 17.66-1.41 1.41" />
+                    <path d="m19.07 4.93-1.41 1.41" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  data-tema="dark"
+                  aria-label="Tema oscuro"
+                  title="Oscuro"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  data-tema="system"
+                  aria-label="Tema del sistema"
+                  title="Automático"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect width="20" height="14" x="2" y="3" rx="2" />
+                    <line x1="8" x2="16" y1="21" y2="21" />
+                    <line x1="12" x2="12" y1="17" y2="21" />
+                  </svg>
+                </button>
+              </div>
             </li>
           </ul>
         </nav>
